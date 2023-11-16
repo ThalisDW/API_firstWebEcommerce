@@ -3,6 +3,7 @@ import { getClientsController } from "./controllers/getClientsController";
 import { insertClientsController } from "./controllers/insertClientsController";
 import { putClientsController } from "./controllers/putClientsController";
 import { getPedidosController } from "./controllers/getPedidosController";
+import { loginController } from "./controllers/loginController";
 
 export function registerRoutes(app: Express){
     
@@ -13,6 +14,8 @@ export function registerRoutes(app: Express){
     app.put("/clients", putClientsController)
 
     app.get("/pedidos", getPedidosController)
+
+    app.post("/login", loginController)
 
 
 
