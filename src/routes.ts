@@ -4,6 +4,7 @@ import { insertClientsController } from "./controllers/insertClientsController";
 import { putClientsController } from "./controllers/putClientsController";
 import { getPedidosController } from "./controllers/getPedidosController";
 import { loginController } from "./controllers/loginController";
+import { validaTokenController } from "./controllers/validaTokenController";
 
 export function registerRoutes(app: Express){
     
@@ -17,6 +18,7 @@ export function registerRoutes(app: Express){
 
     app.post("/login", loginController)
 
+    app.post("/token", validaTokenController)
 
 
 
