@@ -5,6 +5,8 @@ import { putClientsController } from "./controllers/putClientsController";
 import { getPedidosController } from "./controllers/getPedidosController";
 import { loginController } from "./controllers/loginController";
 import { validaTokenController } from "./controllers/validaTokenController";
+import { getAllCategoriasController } from "./controllers/getCategoriasController";
+import { getProductsByCategoriaController } from "./controllers/getProductsByCategoriaController";
 
 export function registerRoutes(app: Express){
     
@@ -19,6 +21,10 @@ export function registerRoutes(app: Express){
     app.post("/login", loginController)
 
     app.post("/token", validaTokenController)
+
+    app.get("/categorias", getAllCategoriasController)
+
+    app.get("/productsByCategoria/:id", getProductsByCategoriaController)
 
 
 

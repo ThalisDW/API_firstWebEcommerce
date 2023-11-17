@@ -23,7 +23,7 @@ export const queryPrms = async (sql: string, params:any[]) : Promise<any[]> =>{
   
 }
 
-export const query = async (sql: string) : Promise<any[]> =>{
+export const fetchQuery = async (sql: string) : Promise<any[]> =>{
   try {
     const client = await pool.connect()
     const result = await client.query(sql)

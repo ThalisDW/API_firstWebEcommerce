@@ -1,5 +1,5 @@
 import { Request, Response } from "express"
-import { query, queryPrms } from "../database"
+import { fetchQuery, queryPrms } from "../database"
 import { IConsultClients } from "../interfaces/IConsultClients"
 
 export const getClientsController = async (req: Request, res: Response)=>{
@@ -34,7 +34,7 @@ export const getClientsController = async (req: Request, res: Response)=>{
     }
 
     
-    const clientes =  await query(sql)
+    const clientes =  await fetchQuery(sql)
     return res.json({clientes})
 
     

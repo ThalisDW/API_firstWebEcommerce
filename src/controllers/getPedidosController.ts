@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { query, queryPrms } from "../database";
+import { fetchQuery, queryPrms } from "../database";
 
 export const getPedidosController = async (req: Request, res: Response)=>{
     
@@ -21,6 +21,6 @@ export const getPedidosController = async (req: Request, res: Response)=>{
         return res.json({pedidos})
     }
     
-    let pedidos = await query(sql)
+    let pedidos = await fetchQuery(sql)
     return res.json({pedidos})
 }
