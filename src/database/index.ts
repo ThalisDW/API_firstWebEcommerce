@@ -11,6 +11,16 @@ export const pool = new Pool({
    port: Number(process.env.DB_PORT)
 })
 
+export const formatQuery = (sql: string, params: any[]): string => {
+  let formattedQuery = sql;
+  params.forEach((param, index) => {
+    const paramPlaceholder = `$${index + 1}`;
+    const paramValue = typeof param === 'string' ? `'${param}'` : param;
+    formattedQuery = formattedQuery.replace(paramPlaceholder, paramValue.toString());
+  });
+  return formattedQuery;
+};
+
 export const queryPrms = async (sql: string, params:any[]) : Promise<any[]> =>{
   try {
     const client = await pool.connect()
